@@ -56,6 +56,20 @@ app.get('/', function (req, res) {
         );
     }
 });
+app.get('/login',function(req,res){
+    if (req.session.user) {
+        res.redirect('/home');
+    }
+    else{
+        var errors=""
+        res.render('login'
+        ,
+        {
+          errors:errors  
+        }
+        );
+    }
+})
 
 app.post('/login', function (req, res) {
     if (req.session.user) {
