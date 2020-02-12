@@ -1,0 +1,63 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+        function getKey(){
+       
+            console.log(document.getElementById('checkbox1').value);
+            
+    }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Delete Book Here</h3>
+            <ul class="nav nav-pills">
+                <li><a href="/home">List All Books</a></li>
+                <li class="active"><a href="/delete">Delete a Book</a></li>
+                <li><a href="/create">Create a Book</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <h2>List of All Books</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                       
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form action="http://127.0.0.1:3000/delete"  method="post" id="delete">
+                    <% books.forEach(function(book){ %>
+                        <tr>
+                            <td><%= book.BookID %></td>
+                            <td><%= book.Title %></td>
+                            <td><%= book.Author %></td>
+                        </tr>
+                        
+                    <%  }); %>
+                </tbody>
+            </table>
+            <div class="d-inline">
+           <input type="number" class="form-control" name="deleteId" style="margin: 10;width: 15%;" placeholder="Delete Book Id" required>
+            </div>
+            <div>
+            <input type="submit" class="btn btn-danger active" style="margin-left: 10;" value="Delete">
+        </div>
+        </form>
+        </div> 
+        <%if (errors != "") { %>
+            <ul>
+                <li style="color: red;"><%= errors %></li>
+            </ul> 
+            <% } %>
+                    
+    </body>
+</html>

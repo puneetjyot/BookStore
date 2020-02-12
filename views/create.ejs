@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h3>Book Store App</h3>
+        <ul class="nav nav-pills">
+            <li ><a href="/home">List All Books</a></li>
+            <li><a href="/delete">Delete a Book</a></li>
+            <li class="active"><a href="/create">Create a Book</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Create a Book</h2>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="http://127.0.0.1:3000/create" method="post" id="create" >
+            <tr>
+                <td>
+                    <div class="input-group">
+                    <input type="number" name="bookid" placeholder="book id" class="form-control" >
+                </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                    <input type="text" name="title" placeholder="title" class="form-control" required>
+                </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                    <input type="text" name="author" placeholder="author" class="form-control" required>
+                </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                    <input type="submit" class="btn btn-primary active" class="form-control" required>
+                </div>
+                </td>
+            </tr>
+
+        </form>
+        </tbody>
+        </table>
+    </div>
+    <%if (errors != "") { %>
+        <ul>
+            <li style="color: red;"><%= errors %></li>
+        </ul> 
+        <% } %>
+
+
+
+</body>
+</html>
